@@ -1,4 +1,5 @@
 #  Sudoku Game in Python
+**Learning / Demo Project:** Developed as part of my learning journey to practice Python
 A command-line based **Sudoku Game**, created as a learning project in Python. It includes both **human interaction** and **computer-assisted solving**, with a feature that allows the player to give up and let the computer solve the puzzle.
 This project is built primarily for **educational purposes** — to practice Python basics, algorithms like **backtracking**, and get hands-on with concepts like **recursion**, **input handling**, and **code structure**.
 
