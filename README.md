@@ -1,10 +1,10 @@
-# 🧩 Sudoku Game in Python
+#  Sudoku Game in Python
 A command-line based **Sudoku Game**, created as a learning project in Python. It includes both **human interaction** and **computer-assisted solving**, with a feature that allows the player to give up and let the computer solve the puzzle.
 This project is built primarily for **educational purposes** — to practice Python basics, algorithms like **backtracking**, and get hands-on with concepts like **recursion**, **input handling**, and **code structure**.
 
 ---
 
-## 🚀 Features
+##  Features
 
 -  Generates a **new random Sudoku puzzle** with a unique solution.
 -  Allows **player interaction** to fill in Sudoku numbers.
@@ -16,7 +16,7 @@ This project is built primarily for **educational purposes** — to practice Pyt
 
 ---
 
-## 🎓 Learning Outcomes
+##  Learning Outcomes
 
 This project was created as part of a self-guided learning journey and includes:
 
@@ -28,7 +28,7 @@ This project was created as part of a self-guided learning journey and includes:
 
 ---
 
-## 📌 How to Run
+##  How to Run
 
 1. **Clone the repo** or download the code:
 
@@ -50,7 +50,7 @@ This project was created as part of a self-guided learning journey and includes:
 
 ---
 
-## ❌ Known Limitations
+##  Limitations
 
 -  No graphical interface — this is purely **text-based**.
 -  No automated test cases or error logging.
@@ -59,7 +59,7 @@ This project was created as part of a self-guided learning journey and includes:
 
 ---
 
-## 🔧 Future Improvements
+##   Improvements
 
 -  Add a **GUI** using `Tkinter` or `Pygame`.
 -  Make the computer play **smarter** with strategies.
@@ -78,4 +78,4 @@ This project was created as part of a self-guided learning journey and includes:
 
 ---
 
-### 💡 If you found this helpful, feel free to explore the repo and suggest improvements!
+###  If you found this helpful, feel free to explore the repo and suggest improvements!
