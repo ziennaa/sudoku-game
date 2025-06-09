@@ -1,16 +1,16 @@
 import random # imports random to pick random numbers and shuffle cells
 import sys # calls sys.exit() so program can end whenver user quits
-# Function to print the Sudoku board
+# function to print the board
 def print_board(board):
-    """
-    displays the 9x9 Sudoku board in a formatted grid
-    with lines separating 3x3 subgrids basically 2d list board 9*9
-    """
+    '''
+    displays 9*9 board in a formatted grid
+    with lines separating 3*3 subgrids basically 2d list board 9*9
+    '''
     for i in range(9):
         if i % 3 == 0 and i != 0:
             print("- - - - - - - - - - - - - - -")
             '''
-            every time i is a multiple of 3 we print horizontal seperator
+            every time i is a multiple of 3 it print horizontal seperator
             this is row index or used for maing row
             '''
         for j in range(9):
@@ -25,16 +25,16 @@ def print_board(board):
             # on the same line end=" "
         print() # for moving to next line
 
-# Function to find an empty cell in the Sudoku board
+# function to find an empty cell in board
 def find_empty(board):# searches the grid
     for i in range(9):
         for j in range(9):
-          # used for scanning every row i and every col j to look for 0 (indicated empty)
+          # used for scanning every row i and every col j to look for 0(indicates empty)
             if board[i][j] == 0:
                 return (i, j) # returns row and col as soon as it finds empty 
     return None
 
-# Function to check if placing num at pos is valid
+# function to check if placing num at pos is valid
 def is_valid(board, num, pos):# check if you can place a number at row or col
     row, col = pos
     if any(board[row][i] == num for i in range(9) if i != col): #scaNS row for duplicates
@@ -65,7 +65,6 @@ def solve_board(board):
             board[row][col] = 0
     return False
 
-# Count solutions to ensure uniqueness
 def count_solutions(board):
   # counts all possible ways to create or complete the solutuion 
   # no empty you found sol and returns 1
@@ -82,7 +81,6 @@ def count_solutions(board):
             board[row][col] = 0
     return count
 
-# Create a solvable puzzle with unique solution
 def create_board(removals=30):
    # creates an empty board
 # num cell is used to choose difficulty
@@ -103,12 +101,10 @@ def create_board(removals=30):
                 removed += 1
     return board
 
-# Check if board is full
 def is_complete(board):
     return all(cell != 0 for row in board for cell in row)
     # returns if every cell in grid is non zero
 
-# Get integer input or quit
 def get_input(prompt):
     while True:
         inp = input(prompt)
@@ -118,24 +114,22 @@ def get_input(prompt):
             return int(inp) - 1
         print("Invalid input. Enter 1-9 or 'q'.")
 
-# Player's move
 def player_turn(board):
-    print("\nYour move:")
+    print("\n your move:")
     print_board(board)
     while True:
         row = get_input("Enter row (1-9) or 'q' to quit: ")
         col = get_input("Enter column (1-9) or 'q' to quit: ")
         if board[row][col] == 0:
             break
-        print("Cell filled. Choose another.")
+        print("choose another, cell already filled")
     while True:
         num = get_input("Enter number (1-9) or 'q' to quit: ") + 1
         if is_valid(board, num, (row, col)):
             board[row][col] = num
             break
-        print("Invalid move. Try again.")
+        print("invalid try again")
 
-# Computer attempts a move
 def computer_turn(board):
     print("\nComputer's move:")
     print_board(board)
@@ -149,26 +143,24 @@ def computer_turn(board):
                     print(f"Computer placed {num} at ({row+1},{col+1})")
                     return
                 board[row][col] = 0
-    print("Computer gives up. Multiple solutions possible.")
+    print("computer gives up. multiple solutions possible.")
 
-# Main game loop with 'tired' feature
 if __name__ == "__main__":
     puzzle = create_board(removals=30)
     while True:
         player_turn(puzzle)
-        # After player's move, allow giving up
-        cont = input("\nPress 't' to let computer solve remaining, any other key to continue: ")
+        cont = input("\nPress 't' if tired and let computer solve it, any other key to continue: ")
         if cont.lower() == 't':
             solve_board(puzzle)
             print_board(puzzle)
-            print("\nComputer has solved the rest of the puzzle. Game over.")
+            print("\n Computer has solved the rest of the puzzle :(( Game over.")
             break
         if is_complete(puzzle):
             print_board(puzzle)
-            print("Congratulations! You solved it!")
+            print("Congratulations! You solved it!!!!")
             break
         computer_turn(puzzle)
         if is_complete(puzzle):
             print_board(puzzle)
-            print("Computer solved it. You lose.")
+            print("Computer solved it!! You lose!!!!")
             break
